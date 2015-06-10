@@ -1,6 +1,4 @@
 tmp/
 extract/
 *.pyc
-*.txt
-*.csv
 
