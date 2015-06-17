@@ -62,13 +62,13 @@ def write_instances_to_libsvm_format(instances, output_file):
 
 if __name__ == '__main__':
     pairs = get_collections('mongodb://admin:admin@ds039211.mongolab.com:39211/annotator-3', 'annotator-3', 'pairs')
-    # get_annotated_pairs(pairs, '../data/vote.txt', '../data/annotated.dump')
+    get_annotated_pairs(pairs, '../data/vote.txt', '../data/annotated.dump')
     annotated = get_annotated_from_dump('../data/annotated.dump')
     # l, d = annotated[0]
     # for k in d:
     #     print k, '-->', d[k]
     instances = get_training_instances(annotated, '../data/test.model')
-    write_instances_to_libsvm_format(instances, '../data/instances.txt')
+    write_instances_to_libsvm_format(instances, '../data/train.inst')
     # print instances[0]
 
 
