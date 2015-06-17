@@ -1,4 +1,8 @@
 tmp/
 extract/
-*.pyc
-
+*.py[cod]
+*~
+.DS_Store
+env*/
+*env/
+build
