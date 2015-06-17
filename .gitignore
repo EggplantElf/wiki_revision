@@ -1,5 +1,7 @@
 tmp/
 extract/
+*.dump
+*.model
 *.py[cod]
 *~
 .DS_Store
