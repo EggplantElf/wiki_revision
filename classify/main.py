@@ -56,20 +56,16 @@ def extract_literal_feats(model, feats, pair, feat_str):
 def write_instances_to_libsvm_format(instances, output_file):
     o = open(output_file, 'w')
     for (label, feats) in instances:
-        o.write('%s %s\n' % (label, ' '.join('%d:%.2f' % (k, v) for (k, v) in feats.items())))
+        o.write('%s %s\n' % (label, ' '.join('%d:%.2f' % (k, v) for (k, v) in sorted(feats.items()))))
     o.close()
 
 
 if __name__ == '__main__':
-    pairs = get_collections('mongodb://admin:admin@ds039211.mongolab.com:39211/annotator-3', 'annotator-3', 'pairs')
-    get_annotated_pairs(pairs, '../data/vote.txt', '../data/annotated.dump')
+    # pairs = get_collections('mongodb://admin:admin@ds039211.mongolab.com:39211/annotator-3', 'annotator-3', 'pairs')
+    # get_annotated_pairs(pairs, '../data/vote.txt', '../data/annotated.dump')
     annotated = get_annotated_from_dump('../data/annotated.dump')
-    # l, d = annotated[0]
-    # for k in d:
-    #     print k, '-->', d[k]
     instances = get_training_instances(annotated, '../data/test.model')
     write_instances_to_libsvm_format(instances, '../data/train.inst')
-    # print instances[0]
 
 
 

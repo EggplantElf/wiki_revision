@@ -1,5 +1,6 @@
 tmp/
 extract/
+liblinear/
 *.dump
 *.model
 *.inst
